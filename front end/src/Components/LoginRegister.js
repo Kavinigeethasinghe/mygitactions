@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./LoginRegister.css";
-import axios from "axios";
+import React, { useState } from 'react';
+import './LoginRegister.css';
+import axios from 'axios';
 
 const LoginRegister = () => {
-  const [addclass, setaddclass] = useState("");
+  const [addclass, setaddclass] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +15,7 @@ const handleRegisterSubmit = (e) => {
     axios.post('http://localhost:5000/api/register', {
       name,
       email,
-      password,
+      password
     })
     .then((response) => {
       console.log(response.data);
@@ -26,14 +26,14 @@ const handleRegisterSubmit = (e) => {
     })
     .catch((error) => {
       console.log(error.response.data);
-    });
+    })
   }
   
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:5000/api/login', {
       email: loginEmail,
-      password: loginPassword,
+      password: loginPassword
     })
     .then((response) => {
       console.log(response.data);
@@ -43,7 +43,7 @@ const handleRegisterSubmit = (e) => {
     })
     .catch((error) => {
       console.log(error.response.data);
-    });
+    })
   }
   
   return (
